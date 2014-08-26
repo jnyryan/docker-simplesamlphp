@@ -42,12 +42,13 @@ ADD ./etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-
 RUN echo "extension=mcrypt.so" >> /etc/php5/cli/php.ini
 RUN echo "extension=mcrypt.so" >>  /etc/php5/mods-available/mcrypt.ini
 RUN php5enmod mcrypt
-
-RUN curl -sS https://getcomposer.org/installer | php
-
 WORKDIR /var/simplesamlphp
-RUN php /var/simplesamlphp/composer.phar install
+RUN curl -sS https://getcomposer.org/installer | php
+RUN php composer.phar install
 
-RUN /etc/init.d/apache2 restart
+####################
+# Final bits
+
+CMD ""/etc/init.d/apache2" restart
 
 EXPOSE 80
