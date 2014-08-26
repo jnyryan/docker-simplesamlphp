@@ -19,7 +19,8 @@ RUN apt-get install -y php5 libapache2-mod-php5 php5-mcrypt php-pear
 RUN apt-get install -y php5-common php5-cli php5-curl php5-gmp php5-ldap
 RUN apt-get install -y libapache2-mod-gnutls
 RUN a2enmod gnutls
-RUN /etc/init.d/apache2 restart
+
+#RUN /etc/init.d/apache2 restart
 
 ####################
 # PKI
@@ -49,6 +50,6 @@ RUN php composer.phar install
 ####################
 # Final bits
 
-CMD ""/etc/init.d/apache2" restart
-
 EXPOSE 80
+
+CMD ["/etc/init.d/apache2 restart"]
