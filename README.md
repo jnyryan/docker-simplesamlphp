@@ -89,7 +89,7 @@ Build the package locally and push it to dockerhub
 ``` bash
 sudo docker login
 sudo docker pull jnyryan/simplesamlphp
-sudo docker build -t jnyryan/simplesamlphp /vagrant/Docker/.
+sudo docker build -t jnyryan/simplesamlphp /vagrant/.
 sudo docker push jnyryan/simplesamlphp
 ```
 
