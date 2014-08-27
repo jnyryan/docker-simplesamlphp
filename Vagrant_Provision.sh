@@ -30,11 +30,9 @@ openssl req -x509 -batch -nodes -newkey rsa:2048 -keyout /etc/ssl/private/server
 ####################
 # SimpleSaml
 
-cd /var
-git clone https://github.com/simplesamlphp/simplesamlphp.git
-cd /var/simplesamlphp
-mkdir -p config && cp -r config-templates/* config/
-mkdir -p metadata && cp -r metadata-templates/* metadata/
+git clone https://github.com/simplesamlphp/simplesamlphp.git /var/simplesamlphp
+mkdir -p /var/simplesamlphp/config && cp -r /var/simplesamlphp/config-templates/* /var/simplesamlphp/config/
+mkdir -p /var/simplesamlphp/metadata && cp -r /var/simplesamlphp/metadata-templates/* /var/simplesamlphp/metadata/
 cp /vagrant/etc/simplesamlphp/config.php /var/simplesamlphp/config/config.php
 cp /vagrant/etc/simplesamlphp/authsources.php /var/simplesamlphp/config/authsources.php
 cp /vagrant/etc/simplesamlphp/saml20-idp-remote.php /var/simplesamlphp/metadata/saml20-idp-remote.php
