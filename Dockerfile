@@ -52,4 +52,5 @@ RUN php composer.phar install
 
 EXPOSE 80
 
-CMD ["/etc/init.d/apache2 restart"]
+ENTRYPOINT ["/usr/sbin/apache2ctl"]
+CMD ["-D", "FOREGROUND"]
