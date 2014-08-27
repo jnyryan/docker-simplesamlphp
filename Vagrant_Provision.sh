@@ -36,8 +36,11 @@ cd /var/simplesamlphp
 mkdir -p config && cp -r config-templates/* config/
 mkdir -p metadata && cp -r metadata-templates/* metadata/
 cp /vagrant/etc/simplesamlphp/config.php /var/simplesamlphp/config/config.php
+cp /vagrant/etc/simplesamlphp/authsources.php /var/simplesamlphp/config/authsources.php
+cp /vagrant/etc/simplesamlphp/saml20-idp-remote.php /var/simplesamlphp/metadata/saml20-idp-remote.php
 cp /etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf.bak
 cp /vagrant/etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+
 
 ####################
 # Composer
