@@ -65,10 +65,10 @@ $config = array(
     'dubdev-adfs' => array(
         'saml:SP',
         'idp' => 'https://dubdevdc.dubdev.com/adfs/services/trust',
-        'privatekey' => '/etc/ssl/private/server.pem',
-        'certificate' => '/etc/ssl/private/server.crt',
+        'privatekey' => 'saml.pem',
+        'certificate' => 'saml.crt',
     ),
-    
+
     /*
     'example-sql' => array(
         'sqlauth:SQL',

@@ -23,11 +23,6 @@ a2enmod gnutls
 
 
 ####################
-# PKI
-mkdir -p /etc/ssl/private/
-openssl req -x509 -batch -nodes -newkey rsa:2048 -keyout /etc/ssl/private/server.pem -out /etc/ssl/private/server.crt
-
-####################
 # SimpleSaml
 
 cd /var
@@ -39,6 +34,14 @@ cp /vagrant/etc/simplesamlphp/config.php /var/simplesamlphp/config/config.php
 cp /vagrant/etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 cp /vagrant/etc/simplesamlphp/authsources.php /var/simplesamlphp/config/authsources.php
 cp /vagrant/etc/simplesamlphp/saml20-idp-remote.php /var/simplesamlphp/metadata/saml20-idp-remote.php
+
+####################
+# SSL
+
+cd /var/simplesamlphp
+mkdir -p cert
+openssl req -x509 -batch -nodes -newkey rsa:2048 -keyout cert/saml.pem -out cert/saml.crt
+
 
 ####################
 # Composer
