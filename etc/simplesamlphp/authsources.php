@@ -10,13 +10,6 @@ $config = array(
         'core:AdminPassword',
     ),
 
-    'dubdev-adfs' => array(
-        'saml:SP',
-        'idp' => 'https://dubdevdc.debdev.com/adfs/services/trust',
-        'privatekey' => '/etc/ssl/private/server.pem',
-        'certificate' => '/etc/ssl/private/server.crt',
-    ),
-
     // An authentication source which can authenticate against both SAML 2.0
     // and Shibboleth 1.3 IdPs.
     'default-sp' => array(
@@ -69,7 +62,13 @@ $config = array(
         ),*/
     ),
 
-
+    'dubdev-adfs' => array(
+        'saml:SP',
+        'idp' => 'https://dubdevdc.dubdev.com/adfs/services/trust',
+        'privatekey' => '/etc/ssl/private/server.pem',
+        'certificate' => '/etc/ssl/private/server.crt',
+    ),
+    
     /*
     'example-sql' => array(
         'sqlauth:SQL',
