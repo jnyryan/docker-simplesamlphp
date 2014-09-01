@@ -1,6 +1,6 @@
 <?php
-$metadata['http://dubdevdc.dubdev.com/adfs/services/trust'] = array (
-  'entityid' => 'http://dubdevdc.dubdev.com/adfs/services/trust',
+$metadata['https://dubdevdc.dubdev.com/adfs/services/trust'] = array (
+  'entityid' => 'https://dubdevdc.dubdev.com/adfs/services/trust',
   'sign.logout' => TRUE,
   'contacts' =>
   array (
