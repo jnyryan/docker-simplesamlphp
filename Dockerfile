@@ -1,6 +1,6 @@
 # simpleSAMLphp
 #
-# VERSION               0.0.1
+# VERSION               1.0.0
 
 FROM      ubuntu:14.04
 MAINTAINER John Ryan "jnyryan@gmail.com"
@@ -15,28 +15,25 @@ RUN apt-get install -y apache2
 RUN apt-get install -y apache2-doc apache2-suexec-pristine apache2-suexec-custom apache2-utils openssl-blacklist
 RUN apt-get install -y libmcrypt-dev mcrypt
 RUN apt-get install -y php5 libapache2-mod-php5 php5-mcrypt php-pear
-# php5-user-cache
 RUN apt-get install -y php5-common php5-cli php5-curl php5-gmp php5-ldap
 RUN apt-get install -y libapache2-mod-gnutls
 RUN a2enmod gnutls
 
-#RUN /etc/init.d/apache2 restart
-
-####################
-# PKI
-RUN mkdir -p /etc/ssl/private/
-RUN openssl req -x509 -batch -nodes -newkey rsa:2048 -keyout /etc/ssl/private/server.pem -out /etc/ssl/private/server.crt
-
-
 ####################
 # SimpleSaml
 
+RUN rm -rf /var/simplesamlphp
 RUN git clone https://github.com/simplesamlphp/simplesamlphp.git /var/simplesamlphp
+
 RUN mkdir -p /var/simplesamlphp/config && cp -r /var/simplesamlphp/config-templates/* /var/simplesamlphp/config/
 RUN mkdir -p /var/simplesamlphp/metadata && cp -r /var/simplesamlphp/metadata-templates/* /var/simplesamlphp/metadata/
-ADD ./etc/simplesamlphp/config.php /var/simplesamlphp/config/config.php
-ADD ./etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf.bak
+
+ADD ./etc/simplesamlphp/config/config.php /var/simplesamlphp/config/config.php
 ADD ./etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+
+####################
+# PKI
+RUN mkdir -p /var/simplesamlphp/cert && openssl req -x509 -batch -nodes -newkey rsa:2048 -keyout /var/simplesamlphp/cert/saml.pem -out /var/simplesamlphp/cert/saml.crt
 
 ####################
 # Composer

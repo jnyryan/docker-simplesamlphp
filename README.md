@@ -24,12 +24,26 @@ This repo details 3 usages of SimpleSAMLphp
 
 ## Usage
 
-From the host machine ports 50080/50081 are forwarded to the Vagrant VM. To get
-to either setup hit the following endpoints.
+From the host machine the following ports are forwarded to the Vagrant VM.
 
-Vagrant Hosted: http://localhost:50080/simplesaml
+- 50080
+- 50443
+- 58080
+- 58443
 
-Vagrant Hosted in a Docker Container : http://localhost:50081/simplesaml
+To get to either the HTTP or HTTPS setup hit the following endpoints:
+
+Vagrant Hosted:
+
+  - http://localhost:50080/simplesaml
+  - https://localhost:50443/simplesaml
+
+Vagrant Hosted in a Docker Container :
+
+These both require you to ssh to the vm and run the steps below
+
+  - http://localhost:58080/simplesaml
+  - https://localhost:58443/simplesaml
 
 To access simpleSAMLphp from the browser:
 
@@ -80,7 +94,16 @@ Rather than build it yourself, the full container is available on [DockerHub](ht
 
 ``` bash
 sudo docker pull jnyryan/simplesamlphp
-sudo docker run -d -p 50080:80 jnyryan/simplesamlphp
+sudo docker run -d -p 58080:80 -p 58443:443 jnyryan/simplesamlphp
+
+```
+
+To use your own configs stored on the host in /var/simplesamlphp
+
+``` bash
+sudo docker run -d -p 58080:80 -p 58443:443 \
+-v /var/simplesamlphp/config/:/var/simplesamlphp/config/ -v /var/simplesamlphp/metadata/:/var/simplesamlphp/metadata/ -v /var/simplesamlphp/cert/:/var/simplesamlphp/cert/ \
+jnyryan/simplesamlphp
 ```
 
 To access simpleSAMLphp from the host server:
