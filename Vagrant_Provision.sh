@@ -30,10 +30,10 @@ git clone https://github.com/simplesamlphp/simplesamlphp.git
 cd /var/simplesamlphp
 mkdir -p config && cp -r config-templates/* config/
 mkdir -p metadata && cp -r metadata-templates/* metadata/
-cp /vagrant/etc/simplesamlphp/config.php /var/simplesamlphp/config/config.php
 cp /vagrant/etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-default.conf
-cp /vagrant/etc/simplesamlphp/authsources.php /var/simplesamlphp/config/authsources.php
-cp /vagrant/etc/simplesamlphp/saml20-idp-remote.php /var/simplesamlphp/metadata/saml20-idp-remote.php
+cp /vagrant/etc/simplesamlphp/config/config.php /var/simplesamlphp/config/config.php
+cp /vagrant/etc/simplesamlphp/config/authsources.php /var/simplesamlphp/config/authsources.php
+cp /vagrant/etc/simplesamlphp/metadata/saml20-idp-remote.php /var/simplesamlphp/metadata/saml20-idp-remote.php
 
 ####################
 # SSL

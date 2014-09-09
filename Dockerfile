@@ -51,6 +51,7 @@ RUN php composer.phar install
 # Final bits
 
 EXPOSE 80
+EXPOSE 443
 
 ENTRYPOINT ["/usr/sbin/apache2ctl"]
 CMD ["-D", "FOREGROUND"]
