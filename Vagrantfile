@@ -21,10 +21,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network :forwarded_port, guest: 80, host: 8080
-  config.vm.network :forwarded_port, host: 50080, guest: 80,   auto_correct: true
-  config.vm.network :forwarded_port, host: 50443, guest: 443,   auto_correct: true
 
-  # SimpleSAMLphp on Docker (if installed as per README.md)
+  # SimpleSAMLphp on Docker 
   config.vm.network :forwarded_port, host: 58080, guest: 58080,   auto_correct: true
   config.vm.network :forwarded_port, host: 58443, guest: 58443,   auto_correct: true
 
