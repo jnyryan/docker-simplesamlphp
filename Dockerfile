@@ -35,6 +35,10 @@ ADD ./etc/apache2/sites-enabled/000-default.conf /etc/apache2/sites-enabled/000-
 # PKI
 RUN mkdir -p /var/simplesamlphp/cert && openssl req -x509 -batch -nodes -newkey rsa:2048 -keyout /var/simplesamlphp/cert/saml.pem -out /var/simplesamlphp/cert/saml.crt
 
+##########
+#Permissions
+RUN chown -R www-data /var/lib/php5
+
 ####################
 # Composer
 RUN echo "extension=mcrypt.so" >> /etc/php5/cli/php.ini
