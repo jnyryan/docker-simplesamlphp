@@ -1,6 +1,6 @@
 # simpleSAMLphp
 #
-# VERSION               1.0.0
+# VERSION               1.2.0
 
 FROM      ubuntu:14.04
 MAINTAINER John Ryan "jnyryan@gmail.com"
@@ -17,6 +17,7 @@ RUN apt-get install -y libmcrypt-dev mcrypt
 RUN apt-get install -y php5 libapache2-mod-php5 php5-mcrypt php-pear
 RUN apt-get install -y php5-common php5-cli php5-curl php5-gmp php5-ldap
 RUN apt-get install -y libapache2-mod-gnutls
+RUN apt-get install -y php5-sqlite
 RUN a2enmod gnutls
 
 ####################
