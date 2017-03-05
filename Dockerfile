@@ -1,6 +1,6 @@
 # simpleSAMLphp
 #
-# VERSION               1.2.0
+# VERSION               1.3.0
 
 FROM      ubuntu:14.04
 MAINTAINER John Ryan "jnyryan@gmail.com"
